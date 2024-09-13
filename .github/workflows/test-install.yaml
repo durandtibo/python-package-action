@@ -1,4 +1,4 @@
-name: Package Install Tests - Local
+name: Package Install Tests
 on:
   workflow_call:
   workflow_dispatch: # to trigger manually
@@ -26,7 +26,7 @@ jobs:
 
       - name: Run Action
         id: python-package
-        uses: ./
+        uses: durandtibo/python-package-action@v0.1.0
         with:
           package-name: 'numpy'
           package-version: ${{ matrix.numpy-version }}
