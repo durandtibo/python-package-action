@@ -3,6 +3,7 @@ NAME=python-package-action
 SOURCE=src/$(NAME)
 TESTS=tests
 UNIT_TESTS=tests/unit
+FUNCTIONAL_TESTS=tests/functional
 INTEGRATION_TESTS=tests/integration
 
 LAST_GIT_TAG := $(shell git tag --sort=taggerdate | grep -o 'v.*' | tail -1)
@@ -59,6 +60,10 @@ unit-test :
 .PHONY : unit-test-cov
 unit-test-cov :
 	python -m pytest --xdoctest --timeout 10 --cov-report html --cov-report xml --cov-report term --cov=$(NAME) $(UNIT_TESTS)
+
+.PHONY : functional-test
+functional-test :
+	python -m pytest --xdoctest --timeout 1000 $(FUNCTIONAL_TESTS)
 
 .PHONY : publish-pypi
 publish-pypi :
