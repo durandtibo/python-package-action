@@ -15,6 +15,7 @@ outputs:
     description:
       'Boolean value that indicates if the input package version is valid (true)
       or not (false) for the given python version'
+    value: ${{ steps.check-version.outputs.is-valid-version }}
   closed-valid-version:
     description:
       'The closed valid package version given the input package version'
@@ -38,6 +39,17 @@ runs:
       run: |
         pip install feu==0.0.8a0
 
+    - name: Check version
+      id: check-version
+      shell: bash
+      run: |
+        cmd="from feu.package import is_valid_version; res = is_valid_version(pkg_name='${PACKAGE_NAME}', pkg_version='${PACKAGE_VERSION}', python_version='${PYTHON_VERSION}'); print(f'is-valid-version={res}')"
+        python -c "${cmd}" >> $GITHUB_OUTPUT
+      env:
+        PACKAGE_NAME: ${{ inputs.package-name }}
+        PACKAGE_VERSION: ${{ inputs.package-version }}
+        PYTHON_VERSION: ${{ inputs.python-version }}
+
     - name: Find closest valid version
       id: find-version
       shell: bash
@@ -48,7 +60,6 @@ runs:
         PACKAGE_NAME: ${{ inputs.package-name }}
         PACKAGE_VERSION: ${{ inputs.package-version }}
         PYTHON_VERSION: ${{ inputs.python-version }}
-
 
 #    - name: Set Greeting
 #      run: echo "Hello $INPUT_WHO_TO_GREET."
