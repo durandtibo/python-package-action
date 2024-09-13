@@ -26,7 +26,7 @@ jobs:
 
       - name: Run Action
         id: python-package
-        uses: durandtibo/python-package-action@v0.1
+        uses: durandtibo/python-package-action@v0.1.0
         with:
           package-name: 'numpy'
           package-version: ${{ matrix.numpy-version }}
