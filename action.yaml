@@ -1,4 +1,4 @@
-name: 'find valid package version'
+name: 'find-valid-python-package-version'
 description: 'Find the closest valid version given the package name and version, and python version'
 inputs:
   package-name:
