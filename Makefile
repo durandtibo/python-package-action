@@ -24,7 +24,7 @@ install :
 
 .PHONY : install-all
 install-all :
-	poetry install --no-interaction --all-extras --with docs
+	poetry install --no-interaction --all-extras
 
 .PHONY : update
 update :
