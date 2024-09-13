@@ -33,16 +33,9 @@ python = ">=3.9,<3.13"
 [tool.poetry.extras]
 all = []
 
-[tool.poetry.group.docs]
-optional = true
-
-[tool.poetry.group.docs.dependencies]
-mike = "^2.1"
-mkdocs-material = "^9.5"
-mkdocstrings = { extras = ["python"], version = ">=0.25,<0.27" }
-
 [tool.poetry.group.dev.dependencies]
 black = ">=24.8"
+coola = ">=0.8,<1.0"
 coverage = { extras = ["toml"], version = "^7.6" }
 docformatter = { extras = ["tomli"], version = "^1.7" }
 feu = ">=0.0.7,<1.0"
@@ -54,9 +47,8 @@ pytest-timeout = "^2.3"
 ruff = ">=0.6.0,<1.0"
 xdoctest = "^1.2"
 
-
-coola = ">=0.8,<1.0"
-
+# dependencies used for the functional tests
+numpy = ">=1.20,<3.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
