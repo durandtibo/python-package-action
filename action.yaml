@@ -13,8 +13,8 @@ inputs:
 outputs:
   is-valid-version:
     description:
-      'Boolean value that indicates if the input package version is valid (true)
-      or not (false) for the given python version'
+      'Boolean value that indicates if the input package version is valid (True)
+      or not (False) for the given python version'
     value: ${{ steps.check-version.outputs.is-valid-version }}
   closest-valid-version:
     description:
