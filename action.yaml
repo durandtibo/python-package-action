@@ -43,9 +43,7 @@ runs:
       shell: bash
       run: |
         cmd="from feu.package import find_closest_version; version = find_closest_version(pkg_name='${PACKAGE_NAME}', pkg_version='${PACKAGE_VERSION}', python_version='${PYTHON_VERSION}'); print(f'closed-valid-version={version}')"
-        python -c "${cmd}"
-#        echo ${cmd}
-#        python -c "from feu.package import find_closest_version; version = find_closest_version(pkg_name='${{ inputs.package-name }}', pkg_version='${{ inputs.package-version }}', python_version='${{ inputs.python-version }}'); "
+        python -c "${cmd}" >> $GITHUB_OUTPUT
       env:
         PACKAGE_NAME: ${{ inputs.package-name }}
         PACKAGE_VERSION: ${{ inputs.package-version }}
