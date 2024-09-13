@@ -1,5 +1,9 @@
 name: 'find-valid-python-package-version'
 description: 'Find the closest valid version given the package name and version, and python version'
+branding:
+  icon: 'box'
+  color: 'purple'
+
 inputs:
   package-name:
     description: 'The package name'
