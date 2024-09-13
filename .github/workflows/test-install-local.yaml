@@ -38,13 +38,14 @@ jobs:
       - name: Install package (original)
         if: "${{ steps.local-action.outputs.is-valid-version == 'True' }}"
         run: |
-          pip install coola numpy==${{ matrix.numpy-version }}
+          pip install numpy==${{ matrix.numpy-version }}
 
       - name: Install package (closest)
         if: "${{ steps.local-action.outputs.is-valid-version == 'False' }}"
         run: |
-          pip install coola numpy==${{ steps.local-action.outputs.closest-valid-version }}
+          pip install numpy==${{ steps.local-action.outputs.closest-valid-version }}
 
       - name: Run functional tests
         run: |
-          make functional-test
+          pip install pytest coola
+          python -m pytest --timeout 1000 tests/functional
