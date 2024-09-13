@@ -16,10 +16,10 @@ outputs:
       'Boolean value that indicates if the input package version is valid (true)
       or not (false) for the given python version'
     value: ${{ steps.check-version.outputs.is-valid-version }}
-  closed-valid-version:
+  closest-valid-version:
     description:
-      'The closed valid package version given the input package version'
-    value: ${{ steps.find-version.outputs.closed-valid-version }}
+      'The closest valid package version given the input package version'
+    value: ${{ steps.find-version.outputs.closest-valid-version }}
 #  random-number:
 #    description: "Random number"
 #    value: ${{ steps.random-number-generator.outputs.random-number }}
@@ -54,7 +54,7 @@ runs:
       id: find-version
       shell: bash
       run: |
-        cmd="from feu.package import find_closest_version; version = find_closest_version(pkg_name='${PACKAGE_NAME}', pkg_version='${PACKAGE_VERSION}', python_version='${PYTHON_VERSION}'); print(f'closed-valid-version={version}')"
+        cmd="from feu.package import find_closest_version; version = find_closest_version(pkg_name='${PACKAGE_NAME}', pkg_version='${PACKAGE_VERSION}', python_version='${PYTHON_VERSION}'); print(f'closest-valid-version={version}')"
         python -c "${cmd}" >> $GITHUB_OUTPUT
       env:
         PACKAGE_NAME: ${{ inputs.package-name }}
