@@ -36,15 +36,15 @@ jobs:
         run: echo '${{ toJSON(steps.local-action.outputs) }}'
 
       - name: Install package (original)
-        if: "${{ steps.local-action.outputs.is-valid-version == 'true' }}"
+        if: "${{ steps.local-action.outputs.is-valid-version == 'True' }}"
         run: |
           pip install coola numpy==${{ matrix.numpy-version }}
 
       - name: Install package (closest)
-        if: "${{ steps.local-action.outputs.is-valid-version == 'false' }}"
+        if: "${{ steps.local-action.outputs.is-valid-version == 'False' }}"
         run: |
           pip install coola numpy==${{ steps.local-action.outputs.closest-valid-version }}
 
       - name: Run functional tests
         run: |
-          poetry run make functional-test
+          make functional-test
