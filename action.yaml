@@ -44,7 +44,7 @@ runs:
       run: |
         cmd="from feu.package import find_closest_version; version = find_closest_version(pkg_name='${PACKAGE_NAME}', pkg_version='${PACKAGE_VERSION}', python_version='${PYTHON_VERSION}'); print(f'closed-valid-version={version}')"
         echo ${cmd}
-        python -c ${cmd}
+#        python -c ${cmd}
 #        python -c "from feu.package import find_closest_version; version = find_closest_version(pkg_name='${{ inputs.package-name }}', pkg_version='${{ inputs.package-version }}', python_version='${{ inputs.python-version }}'); "
       env:
         PACKAGE_NAME: ${{ inputs.package-name }}
