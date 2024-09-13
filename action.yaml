@@ -20,9 +20,7 @@ outputs:
     description:
       'The closest valid package version given the input package version'
     value: ${{ steps.find-version.outputs.closest-valid-version }}
-#  random-number:
-#    description: "Random number"
-#    value: ${{ steps.random-number-generator.outputs.random-number }}
+
 runs:
   using: "composite"
   steps:
