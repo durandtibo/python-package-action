@@ -35,13 +35,7 @@ jobs:
       - name: Print closest version
         run: echo '${{ toJSON(steps.local-action.outputs) }}'
 
-      - name: Install package (original)
-        if: "${{ steps.local-action.outputs.is-valid-version == 'True' }}"
-        run: |
-          pip install numpy==${{ matrix.numpy-version }}
-
-      - name: Install package (closest)
-        if: "${{ steps.local-action.outputs.is-valid-version == 'False' }}"
+      - name: Install package
         run: |
           pip install numpy==${{ steps.local-action.outputs.closest-valid-version }}
 
