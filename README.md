@@ -11,16 +11,6 @@
         <img alt="PYPI version" src="https://img.shields.io/github/v/release/durandtibo/python-package-action?logo=github&sort=semver">
     </a>
     <br/>
-    <a href="https://codecov.io/gh/durandtibo/python-package-action">
-        <img alt="Codecov" src="https://codecov.io/gh/durandtibo/python-package-action/branch/main/graph/badge.svg">
-    </a>
-    <a href="https://codeclimate.com/github/durandtibo/python-package-action/maintainability">
-        <img src="https://api.codeclimate.com/v1/badges/83ebb50e6c6f67b0570d/maintainability" />
-    </a>
-    <a href="https://codeclimate.com/github/durandtibo/python-package-action/test_coverage">
-        <img src="https://api.codeclimate.com/v1/badges/83ebb50e6c6f67b0570d/test_coverage" />
-    </a>
-    <br/>
     <a href="https://github.com/psf/black">
         <img  alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg">
     </a>
