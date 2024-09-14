@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from coola.testing import numpy_available
 
 
