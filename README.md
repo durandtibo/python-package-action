@@ -35,7 +35,34 @@ the latest release notes.
 
 ### Basic usage
 
-TODO
+```yaml
+  - name: Find valid package version
+    id: python-package-version
+    uses: durandtibo/python-package-action@v0.1.1
+    with:
+      package-name: 'numpy'
+      package-version: 2.0.2
+      python-version: 3.11
+
+  - name: Install package
+    run: |
+      pip install numpy==${{ steps.python-package-version.outputs.closest-valid-version }}
+```
+
+### Inputs
+
+| name              | description                      | default value |
+|-------------------|----------------------------------|---------------|
+| `package-name`    | The package name e.g. `numpy`    | none          |
+| `package-version` | The package version e.g. `2.0.2` | none          |
+| `python-version`  | The python version e.g. `3.11`   | none          |
+
+### Outputs
+
+| name                    | description                                                                                                                   |
+|-------------------------|-------------------------------------------------------------------------------------------------------------------------------|
+| `is-valid-version`      | Boolean value that indicates if the input package version is valid (`'True'`) or not (`'False'`) for the given python version |
+| `closest-valid-version` | The closest valid package version given the input package version                                                             |                                                    |
 
 ## Suggestions and Communication
 

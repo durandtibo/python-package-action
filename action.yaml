@@ -39,7 +39,7 @@ runs:
     - name: Install dependencies
       shell: bash
       run: |
-        pip install "feu>=0.0.8a0"
+        pip install "feu>=0.1.0"
 
     - name: Check version
       id: check-version
