@@ -38,7 +38,7 @@ the latest release notes.
 ```yaml
   - name: Find valid package version
     id: python-package-version
-    uses: durandtibo/python-package-action@v0.1.1
+    uses: durandtibo/python-package-action@v0.2.0
     with:
       package-name: 'numpy'
       package-version: 2.0.2
